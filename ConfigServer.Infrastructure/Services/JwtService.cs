@@ -4,10 +4,12 @@ using System.Security.Claims;
 using System.Text;
 using Microsoft.IdentityModel.Tokens;
 using ConfigServer.Domain.Entities;
-using ConfigServer.Application.Interfaces;
+using ConfigServer.Domain.Interfaces;
 using Microsoft.Extensions.Configuration;
+using Microsoft.EntityFrameworkCore;
 
-namespace ConfigServer.Infrastructure.Security
+
+namespace ConfigServer.Infrastructure.Services
 {
     public class JwtService : IJwtService
     {
@@ -22,15 +24,15 @@ namespace ConfigServer.Infrastructure.Security
         {
             var claims = new[]
             {
-                new Claim(ClaimTypes.Name, user.Email)
+                new Claim(ClaimTypes.Name, user.username)
             };
 
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_secretKey));
             var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
 
             var token = new JwtSecurityToken(
-                issuer: "yourIssuer",
-                audience: "yourAudience",
+                issuer: "configserver",
+                audience: "configserverAPI",
                 claims: claims,
                 expires: DateTime.Now.AddDays(1),
                 signingCredentials: creds
@@ -49,8 +51,8 @@ namespace ConfigServer.Infrastructure.Security
                 var claimsPrincipal = tokenHandler.ValidateToken(token, new TokenValidationParameters
                 {
                     IssuerSigningKey = key,
-                    ValidIssuer = "yourIssuer",
-                    ValidAudience = "yourAudience",
+                    ValidIssuer = "configServer",
+                    ValidAudience = "configServerAPI",
                     ClockSkew = TimeSpan.Zero
                 }, out _);
 

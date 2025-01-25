@@ -1,7 +1,10 @@
-namespace ConfigServer.Domain.interfaces
-
-public interface IAuthService
+namespace ConfigServer.Domain.Interfaces
 {
-        Task<User> LoginAsync(string username, string password);
-        Task<User> SignupAsync(string username, string password);
+    using ConfigServer.Domain.Entities;
+
+    public interface IAuthService
+    {
+        Task<string> LoginAsync(string username, string password);
+        Task<string> SignupAsync(string username, string password);
+    }
 }

@@ -1,17 +1,16 @@
 namespace ConfigServer.Domain.Entities
-
-public class user {
-    public int Id { get; set; }
-    public string Username { get; set; }
-    public string Password { get; set; }
-    
-    //public string role { get; set;} 
-
-     public User(string email, string password)
+{
+    public class User
     {
-        Email = email;
-        Password = password;
+        public int Id { get; set; }
+        public string Username { get; set; }
+        public string Password { get; set; }
+
+      
+        public User(string username, string password)
+        {
+            Username = username;
+            Password = password;
+        }
     }
-
-
 }

@@ -13,3 +13,4 @@ C:\Users\s.tajik\Desktop\confpro\ConfigServer.Application\obj\Debug\net8.0\Confi
 C:\Users\s.tajik\Desktop\confpro\ConfigServer.Application\obj\Debug\net8.0\refint\ConfigServer.Application.dll
 C:\Users\s.tajik\Desktop\confpro\ConfigServer.Application\obj\Debug\net8.0\ConfigServer.Application.pdb
 C:\Users\s.tajik\Desktop\confpro\ConfigServer.Application\obj\Debug\net8.0\ref\ConfigServer.Application.dll
+C:\Users\s.tajik\Desktop\confpro\ConfigServer.Application\obj\Debug\net8.0\ConfigServer.Application.sourcelink.json

@@ -1,7 +1,8 @@
-using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using ConfigServer.Domain.Entities;
-using ConfigServer.Application.Interfaces;
+using ConfigServer.Domain.Interfaces;
+using Microsoft.Extensions.Configuration;
+
 
 namespace ConfigServer.Infrastructure.Repositories
 {
@@ -14,10 +15,10 @@ namespace ConfigServer.Infrastructure.Repositories
             _dbContext = dbContext;
         }
 
-        public async Task<User> GetByIdAsync(int Id)
-        {
-            return await _dbContext.Users.FirstOrDefaultAsync(u => u.Id == Id);
-        }
+        public async Task<User> GetByUsernameAsync(string username)
+{
+        return await _dbContext.Users.FirstOrDefaultAsync(u => u.Username == username);  
+}
 
         public async Task AddAsync(User user)
         {
